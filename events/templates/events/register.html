@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT REGISTRATION</title>
+
+    <link rel="stylesheet" href="{% static 'events/register.css' %}? v3">
+</head>
+<body>
+    <main class="card">
+        <div class="card-content">
+            <h1>Event Registration</h1>
+                
+
+            {% if success %}
+                <div class="success">Registration successful!</div>
+            {% endif %}
+
+            <form method="POST" novalidate>
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit">Register</button>
+            </form>
+
+        </div>
+    </main>
+</body>
+</html>
